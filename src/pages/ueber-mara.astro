@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
   <section class="story">
     <div class="container story-inner">
-      <div class="story-image-placeholder"><span>Bild Tamara</span></div>
+      <img src="/images/tamara-portrait.jpg" alt="Tamara Sauer" class="story-image" />
       <div class="story-text">
         <p class="section-label">Meine Geschichte</p>
         <h2>Ich habe ein Leben lang funktioniert.</h2>
@@ -29,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
 .page-hero { padding: 5rem 0 3rem; background: var(--sand); }
 .story { padding: 5rem 0; }
 .story-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
-.story-image-placeholder { aspect-ratio: 3/4; background: var(--sand); display: flex; align-items: center; justify-content: center; color: var(--warm-gray); font-size: 0.85rem; border-radius: 2px; }
+.story-image { aspect-ratio: 3/4; width: 100%; object-fit: cover; object-position: center top; border-radius: 2px; }
 .story-text p { color: var(--warm-gray); margin-bottom: 1.2rem; }
 .story-text blockquote { font-family: var(--font-serif); font-size: 1.3rem; font-style: italic; color: var(--terracotta); border-left: 2px solid var(--terracotta); padding-left: 1.5rem; margin: 2rem 0; }
 @media (max-width: 768px) { .story-inner { grid-template-columns: 1fr; } }

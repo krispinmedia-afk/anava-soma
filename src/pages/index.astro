@@ -20,9 +20,11 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
       <div class="hero-image-wrap">
-        <div class="hero-image-placeholder">
-          <span>Bild Tamara</span>
-        </div>
+        <img
+          src="/images/tamara-portrait.jpg"
+          alt="Tamara Sauer — Ayurveda Therapeutin"
+          class="hero-image"
+        />
       </div>
     </div>
   </section>
@@ -63,9 +65,11 @@ import Layout from '../layouts/Layout.astro';
   <!-- ÜBER MARA TEASER -->
   <section class="about-teaser">
     <div class="container about-teaser-inner">
-      <div class="about-image-placeholder">
-        <span>Bild Tamara</span>
-      </div>
+      <img
+        src="/images/tamara-portrait.jpg"
+        alt="Tamara Sauer"
+        class="about-image"
+      />
       <div class="about-text">
         <p class="section-label">Wer ich bin</p>
         <h2>Ich war dort,<br/>wo du gerade bist.</h2>
@@ -124,10 +128,10 @@ import Layout from '../layouts/Layout.astro';
 .hero-sub { margin: 1.5rem 0 2.5rem; color: var(--warm-gray); font-size: 1.05rem; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero-image-wrap { display: flex; justify-content: center; }
-.hero-image-placeholder {
-  width: 100%; aspect-ratio: 3/4; background: var(--sand);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--warm-gray); font-size: 0.85rem; border-radius: 2px; max-width: 420px;
+.hero-image {
+  width: 100%; max-width: 420px; aspect-ratio: 3/4;
+  object-fit: cover; object-position: center top;
+  border-radius: 2px;
 }
 
 .signal-section { background: var(--terracotta); padding: 4rem 0; }
@@ -150,10 +154,10 @@ import Layout from '../layouts/Layout.astro';
 
 .about-teaser { background: var(--cream); }
 .about-teaser-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
-.about-image-placeholder {
-  aspect-ratio: 4/5; background: var(--sand);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--warm-gray); font-size: 0.85rem; border-radius: 2px;
+.about-image {
+  aspect-ratio: 4/5; width: 100%;
+  object-fit: cover; object-position: center top;
+  border-radius: 2px;
 }
 .about-text p { color: var(--warm-gray); margin-bottom: 1rem; }
 
