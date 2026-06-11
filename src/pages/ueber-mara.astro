@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Über Mara" description="Tamara Sauers Geschichte — von Erschöpfung, Trauma und dem Weg zurück zu Gesundheit und Selbstwert.">
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-label">Wer ich bin</p>
+      <h1>Über Mara</h1>
+    </div>
+  </section>
+  <section class="story">
+    <div class="container story-inner">
+      <div class="story-image-placeholder"><span>Bild Tamara</span></div>
+      <div class="story-text">
+        <p class="section-label">Meine Geschichte</p>
+        <h2>Ich habe ein Leben lang funktioniert.</h2>
+        <div class="divider"></div>
+        <p>Als Mutter, als arbeitende Alleinerziehende, als junges Mädchen, das irgendwie keinen Platz in der Welt gefunden hat. Psychische Gewalt, Verlust und Ablehnung waren in verschiedenen Lebensphasen erschreckend normal. Und trotzdem habe ich weitergemacht.</p>
+        <p>Ein letztes Trauma hat mich gebrochen. Ein Jahr mit einem Narzissten — und danach war nichts mehr wie vorher. Mein Nervensystem kollabierte. Die Diagnose: unheilbar krank.</p>
+        <p>Ich habe sie nicht akzeptiert.</p>
+        <blockquote>„Wenn es einen Auslöser dafür gab, dann gibt es auch einen dagegen."</blockquote>
+        <p>Heute laufe ich wieder. Ich bin wieder da. Was mich dahin geführt hat: Fasten, Ayurveda, Journaling — und vor allem: Frauen-Power. Mein Kreis. Meine Verbindung.</p>
+        <p>Heute begleite ich Frauen ab 40 auf demselben Weg. Mit echter Erfahrung. Ohne Abkürzungen.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+<style>
+.page-hero { padding: 5rem 0 3rem; background: var(--sand); }
+.story { padding: 5rem 0; }
+.story-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+.story-image-placeholder { aspect-ratio: 3/4; background: var(--sand); display: flex; align-items: center; justify-content: center; color: var(--warm-gray); font-size: 0.85rem; border-radius: 2px; }
+.story-text p { color: var(--warm-gray); margin-bottom: 1.2rem; }
+.story-text blockquote { font-family: var(--font-serif); font-size: 1.3rem; font-style: italic; color: var(--terracotta); border-left: 2px solid var(--terracotta); padding-left: 1.5rem; margin: 2rem 0; }
+@media (max-width: 768px) { .story-inner { grid-template-columns: 1fr; } }
+</style>

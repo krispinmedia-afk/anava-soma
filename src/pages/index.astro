@@ -1,0 +1,178 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Startseite">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="section-label">Heilung. Verbindung. Selbstwert.</p>
+        <h1>Du hast lang genug<br/><em>funktioniert.</em></h1>
+        <div class="divider"></div>
+        <p class="hero-sub">
+          Wenn dein Körper dir ein Zeichen schickt — mit Erschöpfung, Dysregulation oder dem Gefühl,
+          du kennst dich selbst nicht mehr — dann beginnt hier eine neue Möglichkeit.
+        </p>
+        <div class="hero-actions">
+          <a href="/angebote" class="btn btn-filled">Meine Angebote</a>
+          <a href="/ueber-mara" class="btn">Über Mara</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-image-placeholder">
+          <span>Bild Tamara</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNAL-SATZ -->
+  <section class="signal-section">
+    <div class="container">
+      <blockquote>
+        „Wenn es einen Auslöser dafür gab,<br/>dann gibt es auch einen dagegen."
+        <cite>— Tamara Sauer</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- THEMEN -->
+  <section class="themes-section">
+    <div class="container">
+      <p class="section-label">Was dich hierher bringt</p>
+      <h2>Erkennst du dich?</h2>
+      <div class="divider"></div>
+      <div class="themes-grid">
+        {[
+          { icon: '⚡', title: 'Erschöpfung & Dysregulation', text: 'Du funktionierst — aber irgendwann geht es nicht mehr. Dein Nervensystem kennt keinen Ruhezustand.' },
+          { icon: '🌀', title: 'Hormonelle Beschwerden & PMS', text: 'Dein Körper spricht eine Sprache, die du noch nicht verstehst. Ayurveda kann übersetzen.' },
+          { icon: '💔', title: 'Trauma & gespeicherter Schmerz', text: 'Was nicht verarbeitet wurde, lebt im Körper. Körperorientierte Arbeit löst, was Reden allein nicht kann.' },
+          { icon: '🔒', title: 'Funktionsmodus statt Verbindung', text: 'Du weißt nicht mehr, wer du bist — jenseits der Rolle. Hier findest du zurück zu dir.' },
+        ].map(({ icon, title, text }) => (
+          <div class="theme-card">
+            <span class="theme-icon">{icon}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER MARA TEASER -->
+  <section class="about-teaser">
+    <div class="container about-teaser-inner">
+      <div class="about-image-placeholder">
+        <span>Bild Tamara</span>
+      </div>
+      <div class="about-text">
+        <p class="section-label">Wer ich bin</p>
+        <h2>Ich war dort,<br/>wo du gerade bist.</h2>
+        <div class="divider"></div>
+        <p>
+          Nach psychischer Gewalt, dem Zusammenbruch meines Nervensystems und einer Diagnose,
+          die ich nicht akzeptiert habe — bin ich heute gesund. Nicht durch Abkürzungen,
+          sondern durch den Willen, hinzuschauen.
+        </p>
+        <p>
+          Als Ayurveda Therapeutin, Hair & Make-up Artist und Frau mit echter Heilungsgeschichte
+          begleite ich Frauen ab 40 zurück zu sich selbst.
+        </p>
+        <a href="/ueber-mara" class="btn" style="margin-top: 2rem;">Meine Geschichte lesen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANGEBOTE ÜBERSICHT -->
+  <section class="offers-section">
+    <div class="container">
+      <p class="section-label">Womit ich dich begleite</p>
+      <h2>Angebote</h2>
+      <div class="divider"></div>
+      <div class="offers-grid">
+        {[
+          { title: '1:1 Begleitung', text: 'Individuelle Begleitung auf deinem Weg. Wir arbeiten mit Nervensystem, Ernährung, Körper und deiner Geschichte.', href: '/angebote#eins-zu-eins' },
+          { title: 'Nervensystem & Ernährung', text: 'Praktische Beratung, die Wissenschaft und Ayurveda verbindet. Für deinen Körper, deinen Typ, dein Leben.', href: '/angebote#beratung' },
+          { title: 'Workshops & Gruppen', text: 'Gemeinschaft mit Frauen, die verstehen, was du durchmachst. Wissen, das du direkt anwenden kannst.', href: '/angebote#workshops' },
+        ].map(({ title, text, href }) => (
+          <a href={href} class="offer-card">
+            <h3>{title}</h3>
+            <p>{text}</p>
+            <span class="offer-link">Mehr erfahren →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Bereit, dich selbst<br/>wieder zu hören?</h2>
+      <p>Ein kostenfreies Erstgespräch. Kein Druck. Nur ein ehrliches Gespräch darüber, wo du gerade stehst.</p>
+      <a href="/kontakt" class="btn btn-filled">Erstgespräch anfragen</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+.hero { padding: 6rem 0; background: var(--cream); }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-text h1 em { font-style: italic; color: var(--terracotta); }
+.hero-sub { margin: 1.5rem 0 2.5rem; color: var(--warm-gray); font-size: 1.05rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-image-wrap { display: flex; justify-content: center; }
+.hero-image-placeholder {
+  width: 100%; aspect-ratio: 3/4; background: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--warm-gray); font-size: 0.85rem; border-radius: 2px; max-width: 420px;
+}
+
+.signal-section { background: var(--terracotta); padding: 4rem 0; }
+.signal-section blockquote {
+  font-family: var(--font-serif); font-size: clamp(1.3rem, 3vw, 2rem);
+  font-style: italic; color: var(--cream); text-align: center;
+  max-width: 700px; margin: 0 auto;
+}
+.signal-section cite {
+  display: block; font-family: var(--font-sans); font-style: normal;
+  font-size: 0.85rem; letter-spacing: 0.1em; margin-top: 1.5rem; opacity: 0.75;
+}
+
+.themes-section { background: white; }
+.themes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 3rem; }
+.theme-card { padding: 2rem; border: 1px solid var(--sand); border-radius: 2px; }
+.theme-icon { font-size: 1.8rem; display: block; margin-bottom: 1rem; }
+.theme-card h3 { margin-bottom: 0.8rem; }
+.theme-card p { font-size: 0.95rem; color: var(--warm-gray); }
+
+.about-teaser { background: var(--cream); }
+.about-teaser-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+.about-image-placeholder {
+  aspect-ratio: 4/5; background: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--warm-gray); font-size: 0.85rem; border-radius: 2px;
+}
+.about-text p { color: var(--warm-gray); margin-bottom: 1rem; }
+
+.offers-section { background: var(--sand); }
+.offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.offer-card {
+  display: flex; flex-direction: column; gap: 0.8rem;
+  padding: 2rem; background: var(--cream); border-radius: 2px; transition: transform 0.2s;
+}
+.offer-card:hover { transform: translateY(-3px); }
+.offer-card p { font-size: 0.95rem; color: var(--warm-gray); flex: 1; }
+.offer-link { font-size: 0.85rem; color: var(--terracotta); margin-top: auto; }
+
+.cta-section { background: var(--charcoal); text-align: center; }
+.cta-section h2 { color: var(--cream); margin-bottom: 1.5rem; }
+.cta-section p { color: var(--warm-gray); margin: 0 auto 2.5rem; max-width: 50ch; }
+
+@media (max-width: 768px) {
+  .hero-inner, .about-teaser-inner { grid-template-columns: 1fr; }
+  .hero-image-wrap { order: -1; }
+}
+</style>

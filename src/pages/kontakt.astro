@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Kontakt" description="Erstgespräch anfragen oder eine Nachricht schicken.">
+  <section class="page-hero"><div class="container"><p class="section-label">Lass uns sprechen</p><h1>Kontakt</h1></div></section>
+  <section><div class="container kontakt-wrap">
+    <div class="kontakt-text">
+      <h2>Ein erstes Gespräch —<br/>kostenlos & unverbindlich.</h2>
+      <div class="divider"></div>
+      <p>Du musst noch nicht wissen, was du genau brauchst. Schreib mir einfach, wo du gerade stehst. Ich melde mich innerhalb von 48 Stunden.</p>
+    </div>
+    <form class="kontakt-form">
+      <div class="field"><label for="name">Name</label><input type="text" id="name" name="name" required /></div>
+      <div class="field"><label for="email">E-Mail</label><input type="email" id="email" name="email" required /></div>
+      <div class="field"><label for="nachricht">Deine Nachricht</label><textarea id="nachricht" name="nachricht" rows="5" required></textarea></div>
+      <button type="submit" class="btn btn-filled">Nachricht senden</button>
+    </form>
+  </div></section>
+</Layout>
+<style>
+.page-hero { padding: 5rem 0 3rem; background: var(--sand); }
+.kontakt-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.kontakt-text p { color: var(--warm-gray); }
+.kontakt-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.field { display: flex; flex-direction: column; gap: 0.4rem; }
+label { font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--warm-gray); }
+input, textarea { border: 1px solid var(--sand); background: white; padding: 0.8rem 1rem; font-family: var(--font-sans); font-size: 1rem; color: var(--charcoal); border-radius: 2px; }
+input:focus, textarea:focus { outline: 1px solid var(--terracotta); }
+@media (max-width: 768px) { .kontakt-wrap { grid-template-columns: 1fr; } }
+</style>

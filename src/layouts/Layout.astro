@@ -1,0 +1,159 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'ANAVA SOMA — Ganzheitliche Rückverbindung für Frauen ab 40. Nervensystemregulation, Ayurveda und Heilung durch echte Erfahrung.' } = Astro.props;
+---
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} | ANAVA SOMA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">ANAVA SOMA</a>
+      <nav class="nav">
+        <a href="/ueber-mara">Über Mara</a>
+        <a href="/angebote">Angebote</a>
+        <a href="/ayurveda-test">Ayurveda-Test</a>
+        <a href="/journal">Journal</a>
+        <a href="/kontakt" class="btn btn-filled nav-cta">Erstgespräch</a>
+      </nav>
+      <button class="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo">ANAVA SOMA</span>
+        <p>Ganzheitliche Rückverbindung<br/>für Frauen ab 40.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="/ueber-mara">Über Mara</a>
+        <a href="/angebote">Angebote</a>
+        <a href="/ayurveda-test">Ayurveda-Test</a>
+        <a href="/journal">Journal</a>
+        <a href="/kontakt">Kontakt</a>
+      </nav>
+      <div class="footer-legal">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <p>© 2025 Tamara Sauer — ANAVA SOMA</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--sand);
+  padding: 1rem 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  color: var(--charcoal);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a:not(.btn) {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  transition: color 0.2s;
+}
+
+.nav a:not(.btn):hover { color: var(--terracotta); }
+
+.nav-cta { font-size: 0.8rem; padding: 0.6rem 1.4rem; }
+
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.burger span { display: block; width: 22px; height: 1.5px; background: var(--charcoal); transition: all 0.3s; }
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .burger { display: flex; }
+}
+
+.site-footer {
+  background: var(--charcoal);
+  color: var(--sand);
+  padding: 4rem 0 2rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.footer-brand .logo { color: var(--cream); display: block; margin-bottom: 0.8rem; }
+.footer-brand p { font-size: 0.9rem; color: var(--warm-gray); line-height: 1.6; }
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  color: var(--sand);
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover { color: var(--terracotta); }
+
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.footer-legal a { font-size: 0.8rem; color: var(--warm-gray); }
+.footer-legal p { font-size: 0.75rem; color: var(--warm-gray); margin-top: 0.5rem; }
+
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-legal { align-items: flex-start; }
+}
+</style>

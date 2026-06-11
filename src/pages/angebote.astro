@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Angebote" description="1:1 Begleitung, Nervensystem- und Ernährungsberatung sowie Workshops für Frauen ab 40.">
+  <section class="page-hero"><div class="container"><p class="section-label">Womit ich dich begleite</p><h1>Angebote</h1></div></section>
+  <section><div class="container offers">
+    <div class="offer" id="eins-zu-eins">
+      <p class="section-label">Angebot 01</p>
+      <h2>1:1 Begleitung</h2>
+      <div class="divider"></div>
+      <p>Individuelle, tiefe Begleitung auf deinem persönlichen Weg. Wir schauen gemeinsam auf dein Nervensystem, deine Ernährung, deinen Körper und deine Geschichte — und entwickeln einen Weg, der wirklich zu dir passt.</p>
+      <a href="/kontakt" class="btn btn-filled" style="margin-top:2rem">Anfragen</a>
+    </div>
+    <div class="offer" id="beratung">
+      <p class="section-label">Angebot 02</p>
+      <h2>Nervensystem & Ernährungsberatung</h2>
+      <div class="divider"></div>
+      <p>Praktische Beratung, die aktuelle Wissenschaft mit Ayurveda verbindet. Wir analysieren deinen Konstitutionstyp, deine Beschwerden und erarbeiten konkrete Maßnahmen für mehr Balance, Energie und Regulation.</p>
+      <a href="/kontakt" class="btn btn-filled" style="margin-top:2rem">Anfragen</a>
+    </div>
+    <div class="offer" id="workshops">
+      <p class="section-label">Angebot 03</p>
+      <h2>Workshops & Gruppenformate</h2>
+      <div class="divider"></div>
+      <p>Thematische Workshops für Frauen, die in Gemeinschaft wachsen wollen. Wissen, das du direkt anwenden kannst — in einem Raum, der hält und nährt.</p>
+      <a href="/kontakt" class="btn" style="margin-top:2rem">Nächste Termine anfragen</a>
+    </div>
+  </div></section>
+</Layout>
+<style>
+.page-hero { padding: 5rem 0 3rem; background: var(--sand); }
+.offers { display: flex; flex-direction: column; gap: 5rem; }
+.offer { max-width: 700px; }
+.offer p { color: var(--warm-gray); margin-bottom: 0.5rem; }
+</style>

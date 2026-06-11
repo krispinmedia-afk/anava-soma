@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Ayurveda-Test" description="Finde deinen Ayurveda-Konstitutionstyp (Dosha) und erhalte erste Impulse für mehr Balance.">
+  <section class="page-hero"><div class="container"><p class="section-label">Dein Einstieg</p><h1>Ayurveda-Test</h1></div></section>
+  <section><div class="container test-wrap">
+    <p class="lead">Finde heraus, welcher Konstitutionstyp (Dosha) du bist — und erhalte erste, konkrete Impulse für mehr Balance in deinem Alltag.</p>
+    <div class="coming-soon">
+      <span>✦</span>
+      <p>Der Ayurveda-Test wird gerade entwickelt.</p>
+      <p>Trag dich in die Warteliste ein und sei eine der Ersten.</p>
+      <a href="/kontakt" class="btn btn-filled" style="margin-top:1.5rem">Warteliste</a>
+    </div>
+  </div></section>
+</Layout>
+<style>
+.page-hero { padding: 5rem 0 3rem; background: var(--sand); }
+.test-wrap { max-width: 700px; }
+.lead { font-size: 1.1rem; color: var(--warm-gray); margin-bottom: 3rem; }
+.coming-soon { background: var(--sand); padding: 3rem; text-align: center; border-radius: 2px; }
+.coming-soon span { font-size: 2rem; color: var(--terracotta); display: block; margin-bottom: 1rem; }
+.coming-soon p { color: var(--warm-gray); margin-bottom: 0.5rem; }
+</style>
