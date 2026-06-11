@@ -14,25 +14,25 @@ const { title, description = 'ANAVA SOMA — Ganzheitliche Rückverbindung für 
   <title>{title} | ANAVA SOMA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Dancing+Script:wght@400;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/global.css" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="gold-line"></div>
     <div class="container header-inner">
-      <a href="/" class="logo">
+      <a href="/" class="logo-wrap">
         <span class="logo-main">ANAVA SOMA</span>
         <span class="logo-sub">von Tamara Sauer</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="nav">
         <a href="/ueber-mara">Über Mara</a>
         <a href="/angebote">Angebote</a>
         <a href="/ayurveda-test">Ayurveda-Test</a>
         <a href="/journal">Journal</a>
-        <a href="/kontakt" class="btn btn-filled nav-cta">Erstgespräch</a>
+        <a href="/kontakt" class="btn btn-gold nav-cta">Erstgespräch</a>
       </nav>
-      <button class="burger" aria-label="Menü öffnen">
+      <button class="burger" id="burger" aria-label="Menü öffnen">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -47,8 +47,8 @@ const { title, description = 'ANAVA SOMA — Ganzheitliche Rückverbindung für 
     <div class="gold-line"></div>
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-main" style="color: var(--cream); display:block; margin-bottom:0.3rem;">ANAVA SOMA</span>
-        <span class="logo-sub" style="color: var(--gold); display:block; margin-bottom:1rem;">von Tamara Sauer</span>
+        <span class="logo-main" style="color:var(--cream)">ANAVA SOMA</span>
+        <span class="logo-sub" style="color:var(--gold)">von Tamara Sauer</span>
         <p>Ganzheitliche Rückverbindung<br/>für Frauen ab 40.</p>
       </div>
       <nav class="footer-nav">
@@ -61,23 +61,64 @@ const { title, description = 'ANAVA SOMA — Ganzheitliche Rückverbindung für 
         <a href="/datenschutz">Datenschutz</a>
       </nav>
       <div class="footer-claim">
-        <span class="ornament">✦ ✦ ✦</span>
-        <p class="brand-claim">„Das Nervensystem<br/>darf ausatmen."</p>
-        <p class="copyright">© 2025 Tamara Sauer</p>
+        <span class="script-lg" style="display:block; margin-bottom:0.5rem;">Das Nervensystem</span>
+        <span class="script-lg" style="display:block; margin-bottom:1.5rem;">darf ausatmen.</span>
+        <p class="copyright">© 2025 Tamara Sauer — ANAVA SOMA</p>
       </div>
     </div>
     <div class="gold-line" style="margin-top:3rem;"></div>
   </footer>
+
+  <script>
+    // Scroll animation observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Sticky header background
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        header?.classList.add('scrolled');
+      } else {
+        header?.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger?.addEventListener('click', () => {
+      nav?.classList.toggle('open');
+      burger?.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
 
 <style>
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: var(--cream);
-  padding: 0;
+  background: rgba(46,39,33,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.4s;
+}
+
+.site-header.scrolled {
+  background: rgba(46,39,33,0.97);
 }
 
 .header-inner {
@@ -85,45 +126,42 @@ const { title, description = 'ANAVA SOMA — Ganzheitliche Rückverbindung für 
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.2rem 0;
+  padding: 1rem 0;
 }
 
+.logo-wrap { display: flex; flex-direction: column; }
 .logo-main {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   letter-spacing: 0.18em;
-  color: var(--charcoal);
+  color: var(--cream);
+  line-height: 1;
 }
-
 .logo-sub {
-  display: block;
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 2rem;
 }
-
 .nav a:not(.btn) {
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--warm-gray);
+  color: rgba(253,250,246,0.65);
   transition: color 0.2s;
 }
-
-.nav a:not(.btn):hover { color: var(--warm-brown); }
-
-.nav-cta { font-size: 0.72rem; padding: 0.65rem 1.5rem; }
+.nav a:not(.btn):hover { color: var(--gold); }
+.nav-cta { font-size: 0.72rem; padding: 0.6rem 1.4rem; }
 
 .burger {
   display: none;
@@ -138,73 +176,77 @@ const { title, description = 'ANAVA SOMA — Ganzheitliche Rückverbindung für 
   display: block;
   width: 22px;
   height: 1px;
-  background: var(--charcoal);
+  background: var(--cream);
   transition: all 0.3s;
 }
+.burger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
 
 @media (max-width: 768px) {
-  .nav { display: none; }
-  .burger { display: flex; }
+  .nav {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    background: rgba(46,39,33,0.98);
+    backdrop-filter: blur(12px);
+    z-index: 99;
+  }
+  .nav.open { display: flex; }
+  .nav a:not(.btn) { font-size: 1.1rem; color: var(--cream); }
+  .burger { display: flex; z-index: 101; }
 }
 
 /* Footer */
 .site-footer {
-  background: var(--charcoal);
+  background: var(--warm-dark);
   color: var(--sand);
-  padding: 4rem 0 0;
+  padding: 4.5rem 0 0;
 }
-
 .footer-inner {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr 1.1fr;
   gap: 4rem;
   align-items: start;
-  padding-bottom: 3rem;
+  padding-bottom: 3.5rem;
 }
-
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
 .footer-brand p {
   font-size: 0.85rem;
   color: var(--warm-gray);
   line-height: 1.7;
+  margin-top: 0.8rem;
 }
-
 .footer-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  padding-top: 0.3rem;
+  gap: 0.8rem;
+  padding-top: 0.2rem;
 }
-
 .footer-nav a {
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--taupe);
   transition: color 0.2s;
 }
-
 .footer-nav a:hover { color: var(--gold); }
-
-.footer-claim {
-  text-align: right;
-}
-
-.brand-claim {
-  font-family: var(--font-serif);
-  font-size: 1.3rem;
-  font-style: italic;
-  color: var(--cream);
-  line-height: 1.5;
-  margin: 0.5rem 0 1.5rem;
-  max-width: none;
-}
-
+.footer-claim { text-align: right; padding-top: 0.3rem; }
 .copyright {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.1em;
   color: var(--warm-gray);
   max-width: none;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {

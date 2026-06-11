@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types",
-    "deploy": "astro build && wrangler pages deploy dist/client --project-name anava-soma --branch main"
+    "deploy": "astro build && rm -f dist/wrangler.json && rm -f .wrangler/deploy/config.json && wrangler pages deploy dist --project-name anava-soma --branch main"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.7.0",
